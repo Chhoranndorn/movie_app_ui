@@ -13,17 +13,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> items = const [
     Image(
-      image: NetworkImage('https://picsum.photos/800/400?img=1'),
+      image: NetworkImage(
+          'https://freshneyplace.co.uk/wp-content/uploads/2020/05/CaptainAmerica.jpg'),
       fit: BoxFit.cover,
       width: double.infinity,
     ),
     Image(
-      image: NetworkImage('https://picsum.photos/800/400?img=2'),
+      image: NetworkImage(
+          'https://freshneyplace.co.uk/wp-content/uploads/2020/05/CaptainAmerica.jpg'),
       fit: BoxFit.cover,
       width: double.infinity,
     ),
     Image(
-      image: NetworkImage('https://picsum.photos/800/400?img=3'),
+      image: NetworkImage(
+          'https://freshneyplace.co.uk/wp-content/uploads/2020/05/CaptainAmerica.jpg'),
       fit: BoxFit.cover,
       width: double.infinity,
     ),
@@ -41,11 +44,18 @@ class _HomeScreenState extends State<HomeScreen> {
   String selectedCategory = 'All';
 
   final List<String> moviePosters = const [
-    'https://picsum.photos/800/400?img=1', // Aladdin
-    'https://picsum.photos/800/400?img=1', // Joker
-    'https://picsum.photos/800/400?img=1', // Spiderman
-    'https://picsum.photos/800/400?img=1', // Spiderman
-    'https://picsum.photos/800/400?img=1', // Spiderman
+    'https://i.redd.it/dxka5fkvro051.jpg', // Aladdin
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/MonstersInc.jpg', // Joker
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/Ladyandthetramp.jpg', // Spiderman
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/Avatar.jpg', // Spiderman
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/ParentTrap.jpg', // Spiderman
+  ];
+  final List<String> moviePosters2 = const [
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/101Dalmations.jpg', // Aladdin
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/DiaryOfAWimpyKid.jpg', // Joker
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/OliverandCompany.jpg', // Spiderman
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/Mulan.jpg', // Spiderman
+    'https://freshneyplace.co.uk/wp-content/uploads/2020/05/StarWarsEpisode1.jpg', // Spiderman
   ];
 
   int _current = 0;
@@ -194,27 +204,30 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 200, // Adjust based on image size
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: moviePosters.length,
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: 12),
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () => Get.to(() => DetailScreen()),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: Image.network(
-                              moviePosters[index],
-                              width: 120,
-                              height: 200,
-                              fit: BoxFit.cover,
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: 200, // Adjust based on image size
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: moviePosters.length,
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(width: 12),
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () => Get.to(() => DetailScreen()),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(
+                                moviePosters[index],
+                                width: 120,
+                                height: 200,
+                                fit: BoxFit.cover,
+                              ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
@@ -253,24 +266,27 @@ class _HomeScreenState extends State<HomeScreen> {
                   SizedBox(
                     height: 10,
                   ),
-                  SizedBox(
-                    height: 200, // Adjust based on image size
-                    child: ListView.separated(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: moviePosters.length,
-                      separatorBuilder: (context, index) =>
-                          const SizedBox(width: 12),
-                      itemBuilder: (context, index) {
-                        return ClipRRect(
-                          borderRadius: BorderRadius.circular(12),
-                          child: Image.network(
-                            moviePosters[index],
-                            width: 120,
-                            height: 200,
-                            fit: BoxFit.cover,
-                          ),
-                        );
-                      },
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      height: 200, // Adjust based on image size
+                      child: ListView.separated(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: moviePosters.length,
+                        separatorBuilder: (context, index) =>
+                            const SizedBox(width: 12),
+                        itemBuilder: (context, index) {
+                          return ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.network(
+                              moviePosters2[index],
+                              width: 120,
+                              height: 200,
+                              fit: BoxFit.cover,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],

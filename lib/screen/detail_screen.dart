@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework/screen/widget/custom_image.dart';
 import 'package:homework/screen/widget/movie_card.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -33,15 +34,8 @@ class _DetailScreenState extends State<DetailScreen>
           children: [
             Stack(
               children: [
-                SizedBox(
-                  height: 300,
-                  width: double.infinity,
-                  child: Image.network(
-                    'https://picsum.photos/800/400?img=1',
-                    width: 120,
-                    height: 200,
-                    fit: BoxFit.cover,
-                  ),
+                BlurredImageWidget(
+                  imageUrl: 'https://i.redd.it/dxka5fkvro051.jpg',
                 ),
                 Positioned(
                   top: 0,
@@ -51,7 +45,7 @@ class _DetailScreenState extends State<DetailScreen>
                     child: AppBar(
                       backgroundColor: Colors.transparent,
                       elevation: 0,
-                      automaticallyImplyLeading: false, // custom back button
+                      automaticallyImplyLeading: false,
                       titleSpacing: 0,
                       leading: Padding(
                         padding: const EdgeInsets.only(left: 8.0),
@@ -72,9 +66,7 @@ class _DetailScreenState extends State<DetailScreen>
                             child: IconButton(
                               icon: const Icon(Icons.bookmark_border,
                                   color: Colors.white),
-                              onPressed: () {
-                                // bookmark action
-                              },
+                              onPressed: () {},
                             ),
                           ),
                         ),
@@ -96,31 +88,33 @@ class _DetailScreenState extends State<DetailScreen>
                   ),
                 ),
                 Positioned(
-                  top: 300,
+                  top: 330,
                   left: 0,
                   right: 0,
                   bottom: 0,
                   child: Container(
-                    color: Colors.white,
-                    child: Center(child: Text('Content below the image')),
+                    color: Colors.transparent,
+                    child: Center(
+                        child: Column(
+                      children: [
+                        Text(
+                          "Disney's Aladdin",
+                          style: TextStyle(color: Colors.white, fontSize: 30),
+                        ),
+                        Text("2019 . Adventure, Comedy . 2h 8m",
+                            style: TextStyle(color: Colors.grey)),
+                      ],
+                    )),
                   ),
                 ),
               ],
             ),
-            Text(
-              "Disney's Aladdin",
-              style: TextStyle(color: Colors.white, fontSize: 30),
-            ),
-            Text("2019 . Adventure, Comedy . 2h 8m",
-                style: TextStyle(color: Colors.white)),
+            SizedBox(height: 25),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Play button (red background with white play icon and text)
                 ElevatedButton.icon(
-                  onPressed: () {
-                    // Play button action
-                  },
+                  onPressed: () {},
                   icon: const Icon(Icons.play_arrow, color: Colors.white),
                   label: const Text(
                     'Play',
@@ -137,14 +131,9 @@ class _DetailScreenState extends State<DetailScreen>
                     elevation: 0,
                   ),
                 ),
-
                 const SizedBox(width: 16),
-
-                // Download button (dark background with white download icon and text)
                 ElevatedButton.icon(
-                  onPressed: () {
-                    // Download button action
-                  },
+                  onPressed: () {},
                   icon: const Icon(Icons.download, color: Colors.white),
                   label: const Text(
                     'Download',
@@ -152,7 +141,7 @@ class _DetailScreenState extends State<DetailScreen>
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF242424), // dark gray/black
+                    backgroundColor: const Color(0xFF262340), // dark gray/black
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -163,16 +152,30 @@ class _DetailScreenState extends State<DetailScreen>
                 ),
               ],
             ),
+            SizedBox(height: 25),
             Center(
-              child: Text(
-                  "Aladdin, a street boy who falls in love with a princess. With differences in cotite and wealth, Aladdin tries to find a way to become a prince... Read more",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white)),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text:
+                          "Aladdin, a street boy who falls in love with a princess. With differences in cotite and wealth, Aladdin tries to find a way to become a prince... ",
+                      style: TextStyle(color: Colors.grey, fontSize: 16),
+                    ),
+                    TextSpan(
+                      text: "Read more",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(
-              height: 24,
+              height: 25,
             ),
             TabBar(
+              dividerColor: Color(0xFF070421),
               controller: _tabController,
               labelColor: const Color(0xFFD81B4D),
               unselectedLabelColor: Colors.grey,
@@ -181,7 +184,7 @@ class _DetailScreenState extends State<DetailScreen>
               tabs: tabs.map((tab) => Tab(text: tab)).toList(),
             ),
             SizedBox(
-              height: 200, // Height for TabBarView content area
+              height: 200,
               child: TabBarView(
                 controller: _tabController,
                 children: [

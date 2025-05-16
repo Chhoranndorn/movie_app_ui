@@ -11,7 +11,7 @@ class MovieCard extends StatelessWidget {
         color: Color(0xFF262340),
         borderRadius: BorderRadius.circular(20),
       ),
-      height: 130,
+      height: 160,
       child: Stack(
         children: [
           Row(
@@ -24,9 +24,9 @@ class MovieCard extends StatelessWidget {
                     Radius.circular(15),
                   ),
                   child: Image.network(
-                    'https://picsum.photos/200/300', // Replace with your image URL or AssetImage
-                    width: 110,
-                    height: 120,
+                    'https://i.redd.it/dxka5fkvro051.jpg', // Replace with your image URL or AssetImage
+                    width: 140,
+                    height: 140,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -53,9 +53,9 @@ class MovieCard extends StatelessWidget {
                           'Aladdin, a street boy who falls in love with a princess. With differences in caste and wealth, Aladdin tries to find...',
                           style: TextStyle(
                             color: Colors.white70,
-                            fontSize: 13,
+                            fontSize: 15,
                           ),
-                          maxLines: 4,
+                          maxLines: 5,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ),
@@ -71,7 +71,7 @@ class MovieCard extends StatelessWidget {
             right: 8,
             child: Container(
               decoration: BoxDecoration(
-                color: Colors.grey.shade800,
+                color: Color(0xFF262340),
                 borderRadius: BorderRadius.circular(10),
               ),
               padding: const EdgeInsets.all(6),

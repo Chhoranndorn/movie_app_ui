@@ -25,7 +25,7 @@ class DowloadedCard extends StatelessWidget {
                         Radius.circular(15),
                       ),
                       child: Image.network(
-                        'https://picsum.photos/200/300', // Replace with your image URL or AssetImage
+                        'https://freshneyplace.co.uk/wp-content/uploads/2020/05/101Dalmations.jpg', // Replace with your image URL or AssetImage
                         width: 110,
                         height: 120,
                         fit: BoxFit.cover,
@@ -119,7 +119,7 @@ class DowloadedCard extends StatelessWidget {
                         Radius.circular(15),
                       ),
                       child: Image.network(
-                        'https://picsum.photos/200/300', // Replace with your image URL or AssetImage
+                        'https://freshneyplace.co.uk/wp-content/uploads/2020/05/StarWarsEpisode1.jpg', // Replace with your image URL or AssetImage
                         width: 110,
                         height: 120,
                         fit: BoxFit.cover,
