@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:homework/screen/detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -54,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF070421),
       body: SingleChildScrollView(
         padding: const EdgeInsets.only(bottom: 16),
         child: Column(
@@ -106,8 +106,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: _current == idx
-                                ? Colors.redAccent // active dot color
-                                : Colors.grey[300], // inactive dot color
+                                ? Color(0xFFE00E33)
+                                : Colors.grey[300],
                           ),
                         ),
                       );
@@ -116,6 +116,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ]),
             ),
+            SizedBox(
+              height: 5,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -123,10 +126,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     "Categories",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -145,7 +151,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 horizontal: 25, vertical: 5),
                             decoration: BoxDecoration(
                               color: isSelected
-                                  ? Colors.redAccent
+                                  ? Color(0xFFE00E33)
                                   : Color(0xFF1E1C2A),
                               borderRadius: BorderRadius.circular(20),
                             ),
@@ -164,25 +170,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   Row(
                     children: [
                       Text(
                         "Most Popular",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                       Spacer(),
                       Text(
-                        " Sell All",
+                        " Sell all",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   SizedBox(
                     height: 200, // Adjust based on image size
@@ -210,53 +220,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 5,
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "Categories",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(
-                    height: 5,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: categories.map((category) {
-                        final bool isSelected = selectedCategory == category;
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              selectedCategory = category;
-                            });
-                          },
-                          child: Container(
-                            margin: const EdgeInsets.only(right: 7),
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 25, vertical: 5),
-                            decoration: BoxDecoration(
-                              color: isSelected
-                                  ? Colors.redAccent
-                                  : Color(0xFF1E1C2A),
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(
-                              category,
-                              style: TextStyle(
-                                color: isSelected
-                                    ? Colors.white
-                                    : Colors.grey[300],
-                                fontWeight: FontWeight.w500,
-                              ),
-                            ),
-                          ),
-                        );
-                      }).toList(),
-                    ),
-                  ),
                   SizedBox(
                     height: 5,
                   ),
@@ -265,18 +236,22 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Lastest Movies",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white),
                       ),
                       Spacer(),
                       Text(
-                        " Sell All",
+                        " Sell all",
                         style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
                       ),
                     ],
                   ),
                   SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   SizedBox(
                     height: 200, // Adjust based on image size
